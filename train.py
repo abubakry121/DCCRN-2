@@ -51,9 +51,9 @@ def main():
     gpu_tracker = MemTracker()
 
     #
-    train_dataset = PrimewordsMD2018(dataset_path="C://Projects/Whisper/train_data/primewords_md_2018_set1/", noise_path="C://Projects/Whisper/train_data/noise/dormitory_adjusted/-40db/", use_rate=0.1)
+    train_dataset = PrimewordsMD2018(dataset_path="/content/drive/MyDrive/STARGAN/archive (7)/clean_trainset_wav", noise_path="/content/drive/MyDrive/STARGAN/archive (7)/noisy_trainset_wav", use_rate=0.1)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    validate_dataset = PrimewordsMD2018(dataset_path="C://Projects/Whisper/test_data/PrimewordsMD2018/", noise_path="C://Projects/Whisper/train_data/noise/dormitory_adjusted/-40db/", use_rate=0.2)
+    validate_dataset = PrimewordsMD2018(dataset_path="/content/drive/MyDrive/STARGAN/archive (7)/clean_trainset_wav", noise_path="/content/drive/MyDrive/STARGAN/archive (7)/noisy_trainset_wav", use_rate=0.2)
     validate_loader = DataLoader(validate_dataset, batch_size=batch_size)
 
     # DCCRN-E 论文中宣称的最适合用于real-time的
@@ -76,7 +76,7 @@ def main():
 
     # 获取训练开始时间
     train_start_time = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime())
-    os.mkdir("C://Projects/Whisper/models/DCCRN/saved_weight/{}/".format(train_start_time))
+    os.mkdir("/content/drive/MyDrive/STARGAN/archive (7)/clean_trainset_wav".format(train_start_time))
 
     # 训练
     for epoch_i in range(epoch):
